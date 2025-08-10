@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title> 
+    <link rel="stylesheet" href="login.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>Login</h2>
+      <form action="/login" method="post">
+        <div class="input-box">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-box">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" required>
+          <span id="togglePassword" style="cursor: pointer;">Show</span>
+        </div>
+        <div class="input-box button">
+          <input type="submit" id="loginbtn" value="Login Now">
+        </div>
+        <div class="text">
+          <h3>Don't have an account? <a href="signup.html">Signup now</a></h3>
+        </div>
+      </form>
+    </div>
+    <script src="login.js"></script>
+    <script>
+      const togglePassword = document.getElementById('togglePassword');
+      const passwordInput = document.getElementById('password');
+
+      togglePassword.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.textContent = type === 'password' ? 'Show' : 'Hide';
+      });
+    </script>
+  </body>
+</html>
